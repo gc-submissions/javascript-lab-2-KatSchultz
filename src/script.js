@@ -11,7 +11,7 @@ const chooseOption = (opt1, opt2) => {
   return randNum === 0 ? opt1 : opt2;
 };
 
-console.log(chooseOption("red", "blue"));
+// console.log(chooseOption("red", "blue"));
 
 const attackPlayer = function (health) {
   return health - randomDamage();
@@ -26,11 +26,11 @@ const logHealth = (player, health) =>
 
 const logDeath = (winner, loser) => console.log(`${winner} defeated ${loser}`);
 
-logDeath("katie", "tom");
+// logDeath("katie", "tom");
 
 const isDead = (health) => (health <= 0 ? true : false);
 
-console.log(isDead(5));
+// console.log(isDead(5));
 
 function fight(player1, player2, player1Health, player2Health) {
   while (true) {
@@ -56,60 +56,85 @@ function fight(player1, player2, player1Health, player2Health) {
   }
 }
 
-fight("tom", "katie", 30, 30);
+fight("Katie", "Tom", 30, 30);
 
-//ROCK PAPER SCISSORS
+//EXTENDED CHALLENGES
+//printSquare
+//make empty string
+//add width number of # to string
+//print string of # width number of times
 
-// const rockPaperScissors = (player1Selection, player2Selection) => {
-//   if (player1Selection === player2Selection) {
-//     console.log(`It's a tie!`);
-//   } else if (player1Selection === "rock" && player2Selection === "scissors") {
-//     console.log(`Player 1 wins the round`);
-//   } else if (player1Selection === "paper" && player2Selection === "rock") {
-//     console.log(`Player 1 wins the round`);
-//   } else if (player1Selection === "scissors" && player2Selection === "paper") {
-//     console.log(`Player 1 wins the round`);
-//   } else if (player2Selection === "paper" && player1Selection === "rock") {
-//     console.log(`Player 2 wins the round`);
-//   } else if (player2Selection === "scissors" && player1Selection === "paper") {
-//     console.log(`Player 2 wins the round`);
-//   } else if (player2Selection === "rock" && player1Selection === "scissors") {
-//     console.log(`Player 2 wins the round`);
-//   }
-// };
+const printSquare = function (width) {
+  let size = "";
+  for (let i = 1; i <= width; i++) {
+    size += "#";
+  }
+  for (let i = 1; i <= width; i++) {
+    console.log(size);
+  }
+};
 
-// rockPaperScissors("rock", "paper");
-// rockPaperScissors("scissors", "scissors");
+printSquare(4);
 
-// const player1Random = function () {
-//   return Math.trunc(Math.random() * 3 + 1);
-// };
+//printTriangle
+//make empty string
+//add # and print every loop
 
-// const player2Random = function () {
-//   return Math.floor(Math.random() * 3 + 1);
-// };
+const printTriangle = function (width) {
+  let str = "";
+  for (let i = 1; i <= width; i++) {
+    str += "#";
+    console.log(str);
+  }
+};
 
-// let player1Hand;
-// let player2Hand;
+printTriangle(4);
 
-// if (player1Random() === 1) {
-//   player1Hand = "rock";
-// } else if (player1Random === 2) {
-//   player1Hand = "paper";
-// } else {
-//   player1Hand = "scissors";
-// }
+//printRectangle
+//function takes widht and height
+//create empty string
+//create for loop
+//add # = width
+//create new for loop
+//print height times
 
-// if (player2Random() === 1) {
-//   player2Hand = "rock";
-// } else if (player2Random === 2) {
-//   player2Hand = "paper";
-// } else {
-//   player2Hand = "scissors";
-// }
+const printRectangle = function (width, height) {
+  let str = "";
+  for (let i = 1; i <= width; i++) {
+    str += "#";
+  }
+  for (let i = 1; i <= height; i++) {
+    console.log(str);
+  }
+};
 
-// console.log(player1Random());
-// console.log(player2Random());
-// console.log(player1Hand);
-// console.log(player2Hand);
-// rockPaperScissors(player1Hand, player2Hand);
+printRectangle(5, 3);
+
+//getGrade
+//function accepts 1 parameter
+//if 90-100 return A
+//if 80-89 return B
+//if 70-79 return C
+//if 60-69 return D
+//if 0-59 return F
+
+const getGrade = function (number) {
+  if (number >= 90 && number <= 100) {
+    return "A";
+  } else if (number >= 80 && number <= 89) {
+    return "B";
+  } else if (number >= 70 && number <= 79) {
+    return "C";
+  } else if (number >= 60 && number <= 69) {
+    return "D";
+  } else if (number >= 0 && number <= 59) {
+    return "F";
+  } else {
+    return "Must input grade between 0-100";
+  }
+};
+
+console.log(getGrade(50));
+console.log(getGrade(76));
+console.log(getGrade(100));
+console.log(getGrade(80));
